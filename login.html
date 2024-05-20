@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="styleL.css">   
+    <title>LOGIN</title> 
+</head>
+<body>
+    <div class="container">
+        <div class="forms">
+             <!-- Login Form -->
+            <div class="form login">
+                <span class="title">Login</span>
+
+                <form id="loginForm" action="C:\Users\ahmed\Downloads\pRojets\index.html" onsubmit="return login1()">
+                    <div class="input-field">
+                        <input id="loginName" type="text" placeholder="Enter your username" required>
+                        <i class="uil-user"></i>
+                    </div>
+                    <div class="input-field">
+                        <input id="loginPassword" type="password" class="password" placeholder="Enter your password" required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+                    <br><span id="s2" style="color: rgb(157, 0, 255);"></span>
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="logCheck">
+                            <label for="logCheck" class="text">Remember me</label>
+                        </div>
+                        
+                        <a href="#" class="text">Forgot password?</a>
+                    </div>
+
+                    <div class="input-field button">
+                        <input id="loginBtn" type="submit" value="Login">
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">Not a member?
+                        <a href="#" class="text signup-link">Signup Now</a>
+                    </span>
+                </div>
+            </div>
+            <!-- Registration Form -->
+            <div class="form signup">
+                <span class="title">Registration</span>
+
+                <form id="signupForm" action="C:\Users\ahmed\Downloads\pRojets\index.html">
+                    <div class="input-field">
+                        <input id="signupName" type="text" placeholder="Enter your name" required>
+                        <i class="uil uil-user"></i>
+                    </div>
+                    <div class="input-field">
+                        <input id="signupEmail" type="text" placeholder="Enter your email" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input id="signupPassword" type="password" class="password" placeholder="Create a password" required>
+                        <i class="uil uil-lock icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input id="confirmPassword" type="password" class="password" placeholder="Confirm a password" required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="termCon">
+                            <label for="termCon" class="text">I accepted all terms and conditions</label>
+                        </div>
+                    </div>
+                    <div class="input-field button">
+                        <input id="signupBtn" type="submit" value="Sign up" onclick="add()">
+                    </div>
+                </form>
+                <div class="login-signup">
+                    <span class="text">Already a member?
+                        <a href="#" class="text login-link">Login Now</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<script>
+        const container = document.querySelector(".container"),
+              pwShowHide = document.querySelectorAll(".showHidePw"),
+              pwFields = document.querySelectorAll(".password"),
+              signUp = document.querySelector(".signup-link"),
+              login = document.querySelector(".login-link");
+    
+        // DYAL L3WINA BACH YBAN PASSWORD OLA LA
+        pwShowHide.forEach(eyeIcon => {
+            eyeIcon.addEventListener("click", () => {
+                pwFields.forEach(pwField => {
+                    if (pwField.type === "password") {
+                        pwField.type = "text";
+    
+                        pwShowHide.forEach(icon => {
+                            icon.classList.replace("uil-eye-slash", "uil-eye");
+                        });
+                    } else {
+                        pwField.type = "password";
+    
+                        pwShowHide.forEach(icon => {
+                            icon.classList.replace("uil-eye", "uil-eye-slash");
+                        });
+                    }
+                });
+            });
+        });
+    
+        // BACH NSWITCHI MN LOGIN L SIGN UP
+        signUp.addEventListener("click", () => {
+            container.classList.add("active");
+        });
+        login.addEventListener("click", () => {
+            container.classList.remove("active");
+        });
+    
+        // NAKHD DAKCHI LI DKHL USER
+        const loginForm = document.getElementById("loginForm");
+        const loginBtn = document.getElementById("loginBtn");
+    
+        loginBtn.addEventListener("click", function(event) {
+            event.preventDefault(); // Empêcher la soumission du formulaire
+    
+            // NAKHD DAKCHI LI DKHL USER 
+            const username = document.getElementById("loginName").value;
+            const password = document.getElementById("loginPassword").value;
+    
+            if (username !== "" && password !== "") {
+                const loginSuccess = login1(username, password);
+                if (loginSuccess) {
+                    window.location.href = "index.html?username=" + username;
+                    alert("Login successful!");
+                }
+            }
+        });
+    
+        // NAKHD DAKCHI LI DKHL USER 
+        const signupForm = document.getElementById("signupForm");
+        const signupBtn = document.getElementById("signupBtn");
+    
+        signupBtn.addEventListener("click", function(event) {
+            event.preventDefault(); // Empêcher la soumission du formulaire
+    
+            // NAKHD DAKCHI LI DKHL USER
+            const name = document.getElementById("signupName").value;
+            const email = document.getElementById("signupEmail").value;
+            const password = document.getElementById("signupPassword").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+    
+            if (name !== "" && email !== "" && password !== "" && confirmPassword !== "") {
+                add(name, password);
+                alert("You are just registered successfully!");
+            }
+        });
+    
+        //BACH NKHCHI DAKCHI F CONSOLE 
+        var users = [];
+        function add(username, password) {
+            var user = {};
+            user.username = username;
+            user.password = password;
+            users.push(user);
+            console.log(users);
+        }
+
+        //BACH YVERIFI WACH KAYN DAK L USER O NCONTROLER
+        function login1() {
+        event.preventDefault(); //bach la page matrealoadach
+        var username = document.getElementById('loginName').value;
+        var password = document.getElementById('loginPassword').value;
+        if (username === '') {
+            document.getElementById('s2').innerHTML = "Username must be filled out";
+            return false;
+        } else if (password === '') {
+            document.getElementById('s2').innerHTML = "Password must be filled out";
+            return false;
+        }
+
+        if (typeof users !== 'undefined') {
+            for (var i = 0; i < users.length; i++) {
+                if (username === users[i].username && password === users[i].password) {
+                    return true;
+                }
+            }
+        }
+
+        document.getElementById('s2').innerHTML = "Password and username do not match";
+        return false;
+    }
+
+   </script>
+</body>
+</html>

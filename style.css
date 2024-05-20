@@ -1,0 +1,300 @@
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+*{
+    border: 0;
+  margin: 0;
+  box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+a{
+  text-decoration: none;
+    list-style: none;
+}
+#Title{
+    position: absolute;
+    left: 10%;
+}
+nav{
+    background-color:#2b2d42;
+  width: 100%;
+    height: 5rem;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+/* #neon{
+    color: #fff;
+    text-shadow:0 0 40px #0ff;
+} */
+.nav-container{
+  justify-content: space-between;
+    align-items: center; 
+    height: 100%;
+    display: flex;
+}
+ul{
+    display: flex;
+    gap: 4rem;
+    list-style: none;
+}
+ul a:hover{
+    text-shadow: 0 0 3px #FFFFFF;
+    /* box-shadow: 0 4px 2px -2px white; */
+}
+.wrapper {
+    margin-top: 0;
+    margin-left: 25%;
+    width: 100vh;
+    /*This part is important for centering*/
+    display: grid;
+    place-items: center;
+    margin-top: 5rem; 
+}
+  .typing-demo {
+    width: 33ch;
+    animation: typing 2s steps(33), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-size: 3em;
+}
+  .Introduction{
+    padding-top: 10vh ;
+    padding-bottom: 100vh ;
+    margin-left: 0;
+    background-color: #231942;
+    color: #FFF;
+    position: relative;
+}
+  @keyframes typing {
+    from {
+      width: 0
+    }
+}
+
+  @keyframes blink {
+    50% {
+      border-color: transparent
+}
+  }
+  .description{
+    width: 60%;
+    padding-left:40vh;
+  }
+  .login{
+    margin: 15vh 40vh;
+    padding: 1.6rem 2rem;
+    border-radius: 10%;
+  position: absolute;
+    top: 80%;
+    left:22% ;
+    font-size: 1.1rem;
+}
+  .student{
+    width: 55%;
+    position: absolute;
+    top: 30%;
+    right: 20%;
+}
+  .login{
+    background-color: #FFF;
+    color: #000;
+}
+  .login:hover{
+    background-color: coral;
+    transition: all 0.8s ;
+    box-shadow:0 0 6px rgb(248, 66, 0) ;
+    color: #FFFFFF;
+}
+  /*========categories======*/
+  section{
+    background-color: #5e548e;
+    display: grid;
+    grid-template-columns:40% 60% ;
+    padding-bottom: 10px;
+}
+  .Categories{
+    padding-top: 5%;
+    padding-bottom: 10%;
+}
+  
+  .categories-left  p{
+    margin: 2rem ;
+}
+  .categories-right{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:2rem;
+    margin-top: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    position: relative;
+}
+  .category{
+    background-color:#be95c4;
+    padding: 1rem;
+    padding-bottom: 10rem;
+    border-radius: 2rem;
+    color: #000;
+  }
+  .category:hover{
+    box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.5);
+    transition: all 0.8s;
+  }
+  .category img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+  }
+  article h4{
+  text-align: center;
+    font-size: 120%;
+}
+  .categories-left h1{
+    text-align: center;
+    margin-top: 10%;
+    font-size: 250%;
+    color: #FFFFFF;
+  }
+  .categories-left p{
+    color: #FFFFFF;
+    font-size: 120%;
+    line-height: 1.6;
+  }
+  
+/*==========remondation livre========*/
+
+  .recom-book{
+    background-color: #9f86c0;
+    padding-top: 5rem;
+    padding-left: 3rem;
+    padding-bottom: 10rem;
+  }
+  .container-book{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 4rem;
+    margin-left: 40%;
+  }
+  .recom-book article{
+    background-color: #e7c6ff;
+    color: #000000;
+    /* text-align: center; */
+    width: 350px;
+    border-radius: 10%;
+    
+  }
+  .book-description{
+    padding:1rem 1rem 6rem 1rem;
+  position: relative;
+}
+  .book-description h2{
+    margin-bottom: 1.5rem;
+}
+  .book-description p{
+    font-size: 120%;
+}
+  .container-book img{
+    border-top-right-radius: 10%;
+    border-top-left-radius: 10%;
+  }
+  .book-titel-section{
+    background-color: #9f86c0;
+    padding-top: 5%;
+    text-align: center;
+    font-size: 300%;
+    color: #FFF;
+  }
+
+  .book-description a{
+
+    background-color: #1a759f;
+    color: #FFF;
+    padding: 1rem;
+    border-radius: 10%;
+  position: absolute;
+    bottom: 1.5rem;
+    right: 10vw; 
+    text-align: center;
+    display: block;
+}
+  .book-description a:hover{
+    background-color: #ff8fab;
+    color: #231942;
+    transition: all 0.8s;
+    box-shadow:0 0 6px #fc68a8;
+}
+  .container-book article:hover{
+    box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.5);
+    transition: all 0.8s;
+}
+/*==========footer========*/
+.footer-container{
+    background-color: #231942;
+    padding-bottom: 4rem;
+    padding-top: 6%;
+}
+.footer{
+    background-color: #231942;
+    width: 80%;
+    height: 40%;
+    color: #FFF;
+  display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.footer div{
+    display: flex;
+    flex-direction:column;
+    margin-right: 5rem;
+}
+.footer h2{
+    margin-bottom: 2rem;
+}
+
+.footer a{
+    color: #FFF;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+
+.footer a:hover{
+    color: #c81d25;
+    transition: all 0.6s;
+}
+.footer-email-form{
+    margin-bottom: 3rem;
+}
+#footer-email{
+    width: 250px;
+    height: 40px;
+    border-radius: 4px;
+    padding-left: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+#footer-email::placeholder{
+    color: #b1b1b1;
+}
+#footer-email-btn{
+    width: 100px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #c81d25;
+    color: #FFF;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+#footer-email-btn:hover{
+    cursor: pointer;
+    background-color: aqua;
+    color: #000;
+    transition: all 0.8s;
+}
